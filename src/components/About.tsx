@@ -13,7 +13,7 @@ export default function About() {
           <div className="flex justify-center">
             <div className="relative">
               <img
-                src="src/components/t2.jpg" 
+                src="t2.jpg" 
                 alt="Profile"
                 className="rounded-full shadow-xl w-72 h-72 border-4 border-black object-cover transform transition duration-500 hover:scale-105"
               />
