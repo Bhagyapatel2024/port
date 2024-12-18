@@ -122,16 +122,16 @@ const Projects = () => {
 
  return (
   
- <section id="projects" className="py-20 bg-black">
+  <section id="projects" className="py-20 bg-black">
   <div className="container mx-auto px-4 relative">
     {/* Section Title */}
-    <h2 className="text-2xl sm:text-4xl font-bold text-white mb-8 text-center">Projects</h2>
+    <h2 className="text-4xl font-bold text-white mb-8 text-center">Projects</h2>
 
     {/* Loop over project categories */}
     {projectCategories.map((category, catIndex) => (
       <div key={catIndex} className="mb-16">
         {/* Category Title */}
-        <h3 className="text-xl sm:text-3xl font-semibold text-white mb-6">{category.title}</h3>
+        <h3 className="text-3xl font-semibold text-white mb-6">{category.title}</h3>
 
         {/* Carousel Wrapper */}
         <div className="relative flex items-center justify-center">
@@ -139,30 +139,26 @@ const Projects = () => {
           {currentIndexes[catIndex] > 0 && (
             <button
               onClick={() => handlePrev(catIndex)}
-              className="absolute left-0 hidden sm:block bg-gray-800 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition-transform transform hover:scale-110 z-10"
+              className="absolute left-0 bg-gray-800 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition-transform transform hover:scale-110 z-10"
               style={{ marginLeft: "20px" }}
             >
-              &#8592;
+              &#8592; {/* Left Arrow */}
             </button>
           )}
 
           {/* Carousel Container */}
-          <div className="overflow-hidden w-full max-w-full sm:max-w-7xl">
+          <div className="overflow-hidden w-full max-w-7xl">
             <div
-              className={`flex transition-transform duration-500 ${
-                isMobile ? 'flex-wrap' : ''
-              }`}
+              className="flex transition-transform duration-500"
               style={{
-                transform: !isMobile
-                  ? `translateX(-${currentIndexes[catIndex] * 100}%)`
-                  : 'none',
+                transform: `translateX(-${currentIndexes[catIndex] * 100}%)`,
               }}
             >
               {/* Loop through projects */}
               {category.projects.map((project, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900 rounded-xl shadow-lg w-full sm:w-80 mx-auto sm:mx-2 mb-6 sm:mb-0"
+                  className="bg-gray-900 rounded-xl shadow-lg w-80 mx-2"
                 >
                   <a
                     href={project.live || project.github}
@@ -171,7 +167,7 @@ const Projects = () => {
                     className="block"
                   >
                     {/* Project Image */}
-                    <div className="relative h-48 sm:h-64">
+                    <div className="relative h-64">
                       <img
                         src={project.image}
                         alt={project.title}
@@ -181,7 +177,7 @@ const Projects = () => {
                     </div>
                     {/* Project Details */}
                     <div className="p-6">
-                      <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
+                      <h3 className="text-xl font-semibold text-white mb-2">
                         {project.title}
                       </h3>
                       {/* Project Tags */}
@@ -229,10 +225,10 @@ const Projects = () => {
           {currentIndexes[catIndex] < category.projects.length - 1 && (
             <button
               onClick={() => handleNext(catIndex)}
-              className="absolute right-0 hidden sm:block bg-gray-800 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition-transform transform hover:scale-110 z-10"
+              className="absolute right-0 bg-gray-800 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition-transform transform hover:scale-110 z-10"
               style={{ marginRight: "20px" }}
             >
-              &#8594;
+              &#8594; {/* Right Arrow */}
             </button>
           )}
         </div>
@@ -240,7 +236,6 @@ const Projects = () => {
     ))}
   </div>
 </section>
-
 
  );
 };
